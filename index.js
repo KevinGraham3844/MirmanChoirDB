@@ -39,7 +39,7 @@ app.use('/api/login', loginRouter);
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
 
-const PORT = process.env.PORT 
+const PORT = process.env.PORT || 10000
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 });
