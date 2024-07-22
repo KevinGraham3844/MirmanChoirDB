@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from "react-redux"
 import { Table, TableHead, TableCell, TableRow, TableBody, Button } from '@mui/material'
 import { deletePiece, updatePiece } from "../reducers/repertoireReducer"
 import EntryCell from "./EntryCell"
-import { initializeRep } from "../reducers/repertoireReducer"
+
 
 const SingleEntry = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     window.onload = () => {
-        dispatch(initializeRep())
+        navigate('/')
     }
 
     const id = useParams().id
