@@ -8,12 +8,14 @@ import { initializeRep } from "../reducers/repertoireReducer"
 const SingleEntry = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const id = useParams().id
-    const piece = useSelector(state => state.repertoire).find(piece => piece.id === id)
 
     window.onload = () => {
         dispatch(initializeRep())
     }
+
+    const id = useParams().id
+    const piece = useSelector(state => state.repertoire).find(piece => piece.id === id)
+
     if (!piece) {
         return (
             <div>...loading</div>
