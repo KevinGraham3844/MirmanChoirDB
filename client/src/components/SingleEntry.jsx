@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Table, TableHead, TableCell, TableRow, TableBody, Button } from '@mui/material'
 import { deletePiece, updatePiece } from "../reducers/repertoireReducer"
 import EntryCell from "./EntryCell"
-
+import { initializeRep } from "../reducers/repertoireReducer"
 
 const SingleEntry = () => {
     const navigate = useNavigate()
@@ -12,7 +12,7 @@ const SingleEntry = () => {
     const piece = useSelector(state => state.repertoire).find(piece => piece.id === id)
 
     window.onload = () => {
-        navigate('/')
+        dispatch(initializeRep())
     }
     if (!piece) {
         return (

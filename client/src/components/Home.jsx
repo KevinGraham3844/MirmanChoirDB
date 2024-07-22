@@ -30,7 +30,7 @@ const Home = () => {
         dispatch(retainUser(user))
     }
   }, [dispatch])
-
+ 
   const handleChange = (e) => {
     e.preventDefault()
     setPage(e.target.value)
@@ -45,6 +45,11 @@ const Home = () => {
     )}
     <Header />
     <SortingButtons handleChange={handleChange} /> 
+    <Button
+        onClick={() => navigate('/search')}
+    >
+        Search
+    </Button>
     <RepertoireGroup page={page} />
     {user && (
         <div>
@@ -68,7 +73,7 @@ const Home = () => {
             Login
         </Button>
     )}
-
+    
     </>
   )
 }
