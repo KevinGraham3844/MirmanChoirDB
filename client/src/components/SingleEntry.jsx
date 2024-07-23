@@ -9,10 +9,6 @@ const SingleEntry = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    window.onload = () => {
-        navigate('/')
-    }
-
     const id = useParams().id
     const piece = useSelector(state => state.repertoire).find(piece => piece.id === id)
 

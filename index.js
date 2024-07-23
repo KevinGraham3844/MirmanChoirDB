@@ -5,10 +5,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const middleware = require('./utils/middleware');
+
+
 const repertoireRouter = require('./controllers/repertoire');
 const usersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
+
 const mongoose = require('mongoose');
+
 
 console.log(config.MONGODB_URI)
 mongoose.set('strictQuery', false);

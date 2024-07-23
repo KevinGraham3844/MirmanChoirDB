@@ -13,10 +13,6 @@ const Search = () => {
 
     const navigate = useNavigate()
 
-    window.onload = () => {
-        navigate('/')
-    }
-
     const repertoire = [...useSelector(state => state.repertoire)]
    
     const filteredTitles = repertoire.filter(piece => piece.title
