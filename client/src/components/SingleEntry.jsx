@@ -1,18 +1,19 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { Table, TableHead, TableCell, TableRow, TableBody, Button } from '@mui/material'
-import { deletePiece, updatePiece } from "../reducers/repertoireReducer"
+import { deletePiece, initializeRep, updatePiece } from "../reducers/repertoireReducer"
 import EntryCell from "./EntryCell"
 
 
 const SingleEntry = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
+    
     const id = useParams().id
     const piece = useSelector(state => state.repertoire).find(piece => piece.id === id)
 
     if (!piece) {
+        dispatch(initializeRep())
         return (
             <div>...loading</div>
         )

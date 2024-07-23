@@ -39,7 +39,7 @@ const RepertoireList = ({ repertoire }) => {
                   <TableCell style={{border: '1px solid #000', textAlign: 'center'}}>{rep.notes}</TableCell>
                   {user && (
                     <TableCell style={{border: '1px solid #000', textAlign: 'center'}}>
-                      <Link to={`/${rep.id}`}>edit/delete</Link>
+                      <Link to={`/piece/${rep.id}`}>edit/delete</Link>
                     </TableCell>
                   )}
                 </TableRow>
