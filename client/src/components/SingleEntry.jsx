@@ -50,6 +50,7 @@ const SingleEntry = () => {
            'Are you sure you want to delete this entry?' 
         )) {
             dispatch(deletePiece(id))
+            dispatch(initializeRep())
             navigate('/')
         }
     }
