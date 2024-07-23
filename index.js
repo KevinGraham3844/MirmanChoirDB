@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const middleware = require('./utils/middleware');
-
+const path = require('path')
 
 const repertoireRouter = require('./controllers/repertoire');
 const usersRouter = require('./controllers/users');
@@ -34,6 +34,14 @@ app.use(express.json());
 app.get('/', (_req, res) => {
     res.send('<h1>choir DB: go to /api/repertoire for list of DB</h1>');
 });
+
+app.get(['/login', '/create', '/piece/*', '/search'], (req, res) => {
+    res.sendFile(path.join(__dirname, '/client/dist/index.html'), (error) => {
+        if (error) {
+            res.status(500).send(error)
+        }
+    })
+})
 
 app.use(middleware.requestLogger);
 

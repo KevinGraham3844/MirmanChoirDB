@@ -1,9 +1,10 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useState } from 'react'
 import { TextField, Button } from "@mui/material"
 
 import RepertoireList from "./RepertoireList"
 import { useNavigate } from "react-router-dom"
+import { initializeRep } from "../reducers/repertoireReducer"
 
 const Search = () => {
     const [searchTitles, setSearchTitles] = useState('')
@@ -11,7 +12,12 @@ const Search = () => {
     const [searchPublisher, setSearchPublisher] = useState('')
     const [searchType, setSearchType] = useState(null)
 
+    const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    window.onload = () => {
+        dispatch(initializeRep())
+    }
 
     const repertoire = [...useSelector(state => state.repertoire)]
    
