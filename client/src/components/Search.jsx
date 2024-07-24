@@ -48,6 +48,16 @@ const Search = () => {
                 label="titles"
                 value={searchTitles}
                 onChange={({ target }) => setSearchTitles(target.value)}
+                onKeyDown={(e) => {
+                    if(e.key === 'Enter') {
+                        e.preventDefault()
+                        handleSearch('titles')
+                    }
+                    if(e.key === 'Escape') {
+                        setSearchType(null)
+                        setSearchTitles('')
+                    }
+                }}      
             ></TextField>
             <div style={{display: 'flex', flexDirection: 'row'}}>
                 <Button
@@ -61,13 +71,23 @@ const Search = () => {
                             setSearchTitles('')
                         }}
                     >
-                        cancel
+                        clear
                 </Button>
             </div>
             <TextField 
                 label="artists"
                 value={searchArtists}
                 onChange={({ target }) => setSearchArtists(target.value)}
+                onKeyDown={(e) => {
+                    if(e.key === 'Enter') {
+                        e.preventDefault()
+                        handleSearch('artists')
+                    } 
+                    if(e.key === 'Escape') {
+                        setSearchType(null)
+                        setSearchArtists('')
+                    }
+                }} 
             ></TextField>
             <div style={{display: 'flex', flexDirection: 'row'}}>
                 <Button
@@ -81,13 +101,23 @@ const Search = () => {
                             setSearchArtists('')
                         }}
                     >
-                        cancel
+                        clear
                 </Button>
             </div>
             <TextField 
                 label="publisher"
                 value={searchPublisher}
                 onChange={({ target }) => setSearchPublisher(target.value)}
+                onKeyDown={(e) => {
+                    if(e.key === 'Enter') {
+                        e.preventDefault()
+                        handleSearch('publisher')
+                    }
+                    if(e.key === 'Escape') {
+                        setSearchType(null)
+                        setSearchPublisher('')
+                    }
+                }} 
             ></TextField>
             <div style={{display: 'flex', flexDirection: 'row'}}>
                 <Button
@@ -101,7 +131,7 @@ const Search = () => {
                             setSearchPublisher('')
                         }}
                     >
-                        cancel
+                        clear
                 </Button>
             </div>
         </div>
